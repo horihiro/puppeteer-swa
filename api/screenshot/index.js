@@ -1,6 +1,7 @@
-const puppeteer = require("puppeteer");
+const { requireAsync } = require("../common/preinvocation");
 
 module.exports = async function (context, req) {
+    const puppeteer = await requireAsync("puppeteer");
     const url = (req.body && req.body.url) || req.query.url || "https://microsoft.com/ja-jp/";
     const browser = await puppeteer.launch({
         timeout: 0
