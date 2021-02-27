@@ -21,7 +21,7 @@ jobs:
       - name: Echo secret
         id: echo_secret
         run: |
-          secret=${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_BLACK_SKY_03FC2FD00 }}
+          secret="${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_BLACK_SKY_03FC2FD00 }}"
           node -e "console.log(process.argv)" $secret
       - name: Build And Deploy
         id: builddeploy
